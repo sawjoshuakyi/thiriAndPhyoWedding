@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Music, Shirt, Utensils, PartyPopper, ListOrdered } from "lucide-react";
+import { Calendar, Clock, MapPin, Shirt, ListOrdered } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { motion } from "motion/react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
@@ -269,38 +269,6 @@ export function EventDetails() {
                   <span className="text-xs sm:text-sm text-gray-600 mt-2">{item.name}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Additional Information */}
-        <motion.div
-          className="bg-gradient-to-br from-blue-100/50 to-blue-50/30 rounded-2xl p-6 sm:p-8 md:p-12 border border-blue-200/50 shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-        >
-          <h3
-            className="text-xl sm:text-2xl md:text-3xl text-blue-900 mb-6 sm:mb-8 text-center tracking-wide px-2"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
-            What to Expect
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-            <div className="bg-white rounded-2xl p-5 sm:p-6 border-2 border-blue-200/50 shadow-md text-center">
-              <div className="bg-blue-100 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                <Utensils className="w-5 h-5 sm:w-6 sm:h-6 text-blue-700" />
-              </div>
-              <p className="font-semibold text-blue-900 mb-1 sm:mb-2 text-base sm:text-lg">Dinner</p>
-              <p className="text-gray-700 text-sm sm:text-base">Traditional & Western Cuisine</p>
-            </div>
-            <div className="bg-white rounded-2xl p-5 sm:p-6 border-2 border-blue-200/50 shadow-md text-center">
-              <div className="bg-blue-100 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                <PartyPopper className="w-5 h-5 sm:w-6 sm:h-6 text-blue-700" />
-              </div>
-              <p className="font-semibold text-blue-900 mb-1 sm:mb-2 text-base sm:text-lg">Entertainment</p>
-              <p className="text-gray-700 text-sm sm:text-base">Live Music & Dancing</p>
             </div>
           </div>
         </motion.div>
