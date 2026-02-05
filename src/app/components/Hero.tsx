@@ -19,7 +19,7 @@ export function Hero() {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute text-red-400/50"
+            className="absolute text-pink-300/40"
             initial={{ 
               bottom: -20,
               left: `${Math.random() * 100}%`,
@@ -27,7 +27,7 @@ export function Hero() {
             }}
             animate={{
               bottom: '110%',
-              opacity: [0, 0.5, 0.7, 0.7, 0.5, 0],
+              opacity: [0, 0.3, 0.5, 0.5, 0.3, 0],
             }}
             transition={{
               duration: 25 + Math.random() * 10,
