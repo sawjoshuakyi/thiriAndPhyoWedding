@@ -79,7 +79,6 @@ export function EventDetails() {
                     <MapPin className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-blue-900 text-sm">Venue</p>
-                      <p className="text-sm">Ceresville Mansion</p>
                       <p className="text-xs text-gray-600 mt-1">8529 Liberty Road, Frederick, MD 21701</p>
                     </div>
                   </div>
