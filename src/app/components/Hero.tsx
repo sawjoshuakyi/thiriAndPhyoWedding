@@ -44,7 +44,7 @@ export function Hero() {
 
       {/* Sakura SVG at top right */}
       <img
-        src={"/src/app/resource/sakura1-Picsart-BackgroundRemover.jpg"}
+        src="/images/sakura1-Picsart-BackgroundRemover.jpg"
         alt="Sakura"
         className="absolute top-0 right-0 w-40 sm:w-64 md:w-80 opacity-70 pointer-events-none select-none"
         style={{ zIndex: 20 }}
@@ -52,7 +52,7 @@ export function Hero() {
 
       {/* Sakura at bottom left */}
       <img
-        src={"/src/app/resource/sakura_bottom2.jpg"}
+        src="/images/sakura_bottom2.jpg"
         alt="Sakura Bottom Left"
         className="absolute bottom-0 left-0 w-40 sm:w-64 md:w-80 opacity-70 pointer-events-none select-none"
         style={{ zIndex: 20 }}
@@ -62,7 +62,7 @@ export function Hero() {
         <div className="relative flex justify-center items-center">
           {/* Sakura circle background directly behind names */}
           <img
-            src={"/src/app/resource/sakura_circle1.jpg"}
+            src="/images/sakura_circle1.jpg"
             alt="Sakura Circle"
             className="absolute left-1/2 top-1/2 sm:top-[140%] md:top-[180%] w-[28rem] sm:w-[40rem] md:w-[48rem] -translate-x-1/2 -translate-y-1/2 opacity-15 pointer-events-none select-none"
             style={{ zIndex: 1 }}
