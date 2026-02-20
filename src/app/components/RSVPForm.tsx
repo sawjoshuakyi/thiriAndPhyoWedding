@@ -23,6 +23,7 @@ export function RSVPForm() {
     guests: "1",
     dietaryRestrictions: "",
     message: "",
+    mealSelection: "Pork Tenderloin", // Default meal selection
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -259,6 +260,37 @@ export function RSVPForm() {
                           placeholder="e.g., Vegetarian, Allergies"
                         />
                       </div>
+                    </div>
+
+                    {/* Meal Selection */}
+                    <div>
+                      <Label className="text-sm text-blue-900/80 mb-2 block">Meal Selection *</Label>
+                      <RadioGroup
+                        value={formData.mealSelection}
+                        onValueChange={(value) =>
+                          setFormData({ ...formData, mealSelection: value })
+                        }
+                        className="space-y-2"
+                      >
+                        <div className="flex items-center gap-2 p-2 rounded-lg border border-blue-100 hover:bg-blue-50/50">
+                          <RadioGroupItem value="Pork Tenderloin" id="pork" />
+                          <Label htmlFor="pork" className="cursor-pointer font-normal text-sm">
+                            Pork Tenderloin
+                          </Label>
+                        </div>
+                        <div className="flex items-center gap-2 p-2 rounded-lg border border-blue-100 hover:bg-blue-50/50">
+                          <RadioGroupItem value="Grilled Salmon with Tarragon Cream" id="salmon" />
+                          <Label htmlFor="salmon" className="cursor-pointer font-normal text-sm">
+                            Grilled Salmon with Tarragon Cream
+                          </Label>
+                        </div>
+                        <div className="flex items-center gap-2 p-2 rounded-lg border border-blue-100 hover:bg-blue-50/50">
+                          <RadioGroupItem value="Grilled Stuffed Portobello Mushroom (vegan)" id="mushroom" />
+                          <Label htmlFor="mushroom" className="cursor-pointer font-normal text-sm">
+                            Grilled Stuffed Portobello Mushroom (vegan)
+                          </Label>
+                        </div>
+                      </RadioGroup>
                     </div>
                   </>
                 )}
