@@ -56,7 +56,6 @@ const allPhotos = [
   { src: "/images/PT-38.jpg",     caption: "A night out together 🍽️" },
   { src: "/images/PT-59.jpg",     caption: "Making memories" },
   { src: "/images/chapter3.jpg",  caption: "The Proposal" },
-  { src: "/images/PT-63.jpg",     caption: "" },
   { src: "/images/DSC02219.jpg",  caption: "Now forever begins" },
   { src: "/images/PT-20.jpg",     caption: "" },
 ];

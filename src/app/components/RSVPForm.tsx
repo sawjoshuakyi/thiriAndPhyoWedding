@@ -38,15 +38,15 @@ function MealSelector({
           <label
             key={opt.id}
             htmlFor={`${idPrefix}-${opt.id}`}
-            className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+            className={`flex items-start gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
               value === opt.value
                 ? "border-blue-400 bg-blue-50 shadow-sm"
                 : "border-blue-100 bg-white hover:border-blue-200 hover:bg-blue-50/40"
             }`}
           >
-            <RadioGroupItem value={opt.value} id={`${idPrefix}-${opt.id}`} className="shrink-0" />
-            <span className="text-lg">{opt.emoji}</span>
-            <span className="text-sm font-medium text-gray-700">{opt.value}</span>
+            <RadioGroupItem value={opt.value} id={`${idPrefix}-${opt.id}`} className="shrink-0 mt-0.5" />
+            <span className="text-lg shrink-0">{opt.emoji}</span>
+            <span className="text-sm font-medium text-gray-700 leading-snug">{opt.value}</span>
           </label>
         ))}
       </RadioGroup>
@@ -64,6 +64,7 @@ export function RSVPForm() {
     phone: "",
     attendance: "yes",
     plusOne: "no",
+    plusOneName: "",
     dietaryRestrictions: "",
     message: "",
     mealSelection: "Pork Tenderloin with Orange Horseradish Glaze",
@@ -199,7 +200,7 @@ export function RSVPForm() {
         >
           <Card className="border border-blue-100 shadow-2xl bg-white rounded-3xl overflow-hidden">
             <div className="h-1.5 bg-gradient-to-r from-blue-300 via-blue-500 to-blue-300" />
-            <CardContent className="p-6 sm:p-8 md:p-10">
+            <CardContent className="p-4 sm:p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
 
                 {/* ── Personal Info ── */}
@@ -256,7 +257,7 @@ export function RSVPForm() {
                   <RadioGroup
                     value={formData.attendance}
                     onValueChange={(value) => setFormData({ ...formData, attendance: value })}
-                    className="grid grid-cols-2 gap-3 mt-2"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2"
                   >
                     {[
                       { value: "yes", label: "Joyfully Accepts", emoji: "🎉" },
@@ -272,7 +273,7 @@ export function RSVPForm() {
                         }`}
                       >
                         <RadioGroupItem value={opt.value} id={`attend-${opt.value}`} className="shrink-0" />
-                        <span className="text-base">{opt.emoji}</span>
+                        <span className="text-base shrink-0">{opt.emoji}</span>
                         <span className="text-sm font-medium text-gray-700">{opt.label}</span>
                       </label>
                     ))}
@@ -351,7 +352,7 @@ export function RSVPForm() {
                         </RadioGroup>
                       </div>
 
-                      {/* Plus One Meal */}
+                      {/* Plus One Details */}
                       <AnimatePresence>
                         {formData.plusOne === "yes" && (
                           <motion.div
@@ -362,8 +363,19 @@ export function RSVPForm() {
                             transition={{ duration: 0.25 }}
                             className="overflow-hidden"
                           >
-                            <div className="bg-blue-50/60 border border-blue-100 rounded-2xl p-5">
-                              <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-4">Plus One's Meal</p>
+                            <div className="bg-blue-50/60 border border-blue-100 rounded-2xl p-5 space-y-5">
+                              <p className="text-xs font-semibold uppercase tracking-widest text-blue-400">Plus One's Details</p>
+                              <div>
+                                <Label htmlFor="plusOneName" className="text-sm font-semibold text-blue-900 mb-1.5 flex items-center gap-1.5">
+                                  <User className="w-3.5 h-3.5 text-blue-400" /> Plus One's Name <span className="text-red-400">*</span>
+                                </Label>
+                                <Input
+                                  id="plusOneName" name="plusOneName"
+                                  value={formData.plusOneName} onChange={handleChange}
+                                  className="border-2 border-blue-100 focus:border-blue-400 rounded-xl text-sm h-11 bg-white placeholder:text-gray-400 transition-colors"
+                                  placeholder="Enter their full name"
+                                />
+                              </div>
                               <MealSelector
                                 label="Plus One's Meal Selection *"
                                 value={formData.plusOneMealSelection}
