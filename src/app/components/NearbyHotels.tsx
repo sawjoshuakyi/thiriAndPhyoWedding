@@ -30,8 +30,15 @@ const hotels = [
 
 export function NearbyHotels() {
   return (
-    <section id="nearby-hotels" className="py-16 sm:py-20 md:py-28 px-4 bg-gradient-to-b from-white via-blue-50/20 to-white">
-      <div className="container mx-auto max-w-6xl">
+    <section id="nearby-hotels" className="relative overflow-hidden py-16 sm:py-20 md:py-28 px-4"
+      style={{ background: "linear-gradient(to bottom, #ffffff 0%, rgba(255,228,230,0.15) 50%, #ffffff 100%)" }}>
+      {/* Sakura branch decorations */}
+      <img src="/images/sakura_bottom2.jpg" alt="" aria-hidden="true"
+        style={{ position:"absolute", bottom:0, left:0, width:"18rem", maxWidth:"32vw", opacity:0.22, pointerEvents:"none", userSelect:"none" }} />
+      <img src="/images/sakura1-Picsart-BackgroundRemover.jpg" alt="" aria-hidden="true"
+        style={{ position:"absolute", top:0, right:0, width:"15rem", maxWidth:"28vw", opacity:0.15, pointerEvents:"none", userSelect:"none" }} />
+
+      <div className="container mx-auto max-w-6xl relative">
         <motion.div
           className="text-center mb-10 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +52,11 @@ export function NearbyHotels() {
           >
             Nearby Hotels
           </h2>
-          <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"></div>
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+            <span style={{ fontSize:"1.1rem" }}>🌸</span>
+            <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+          </div>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg text-blue-700 max-w-2xl mx-auto font-light px-4">
             Hotel suggestions close to the venue
           </p>

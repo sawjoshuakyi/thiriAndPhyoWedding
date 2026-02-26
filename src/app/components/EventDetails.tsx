@@ -21,9 +21,16 @@ export function EventDetails() {
   return (
     <section
       id="event-details"
-      className="min-h-screen py-16 sm:py-20 md:py-28 px-4 bg-gradient-to-b from-white to-blue-50/30"
+      className="relative overflow-hidden min-h-screen py-16 sm:py-20 md:py-28 px-4"
+      style={{ background: "linear-gradient(to bottom, #ffffff 0%, rgba(255,228,230,0.15) 40%, #eff6ff 100%)" }}
     >
-      <div className="container mx-auto max-w-6xl">
+      {/* Sakura branch decorations */}
+      <img src="/images/sakura_bottom2.jpg" alt="" aria-hidden="true"
+        style={{ position:"absolute", bottom:0, left:0, width:"18rem", maxWidth:"32vw", opacity:0.22, pointerEvents:"none", userSelect:"none" }} />
+      <img src="/images/sakura1-Picsart-BackgroundRemover.jpg" alt="" aria-hidden="true"
+        style={{ position:"absolute", top:0, right:0, width:"16rem", maxWidth:"28vw", opacity:0.15, pointerEvents:"none", userSelect:"none" }} />
+
+      <div className="container mx-auto max-w-6xl relative">
         {/* Section Title */}
         <motion.div
           className="text-center mb-12 sm:mb-16 md:mb-20"
@@ -38,7 +45,11 @@ export function EventDetails() {
           >
             Event Details
           </h2>
-          <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"></div>
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+            <span style={{ fontSize:"1.1rem" }}>🌸</span>
+            <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+          </div>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg text-blue-700 max-w-2xl mx-auto font-light px-4">
             Join us as we celebrate our love and commitment
           </p>
@@ -65,7 +76,7 @@ export function EventDetails() {
                     <Calendar className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-blue-900 text-sm">Date</p>
-                      <p className="text-sm">Friday, May 2, 2026</p>
+                      <p className="text-sm">Saturday, May 2, 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 p-3 bg-blue-50/50 rounded-xl">
@@ -173,7 +184,7 @@ export function EventDetails() {
                     <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-blue-900 mb-1 text-sm sm:text-base">Date</p>
-                      <p className="text-gray-700 text-sm sm:text-base">Friday, May 2, 2026</p>
+                      <p className="text-gray-700 text-sm sm:text-base">Saturday, May 2, 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-blue-50/50 rounded-xl">

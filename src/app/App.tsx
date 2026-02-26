@@ -37,8 +37,8 @@ export default function App() {
       <Hero />
       <OurStory />
       <EventDetails />
-      <NearbyHotels />
       <RSVPForm />
+      <NearbyHotels />
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
