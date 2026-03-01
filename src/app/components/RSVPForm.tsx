@@ -8,7 +8,7 @@ import { Card, CardContent } from "./ui/card";
 import { CheckCircle, Loader2, User, Mail, Phone, Heart, Utensils, MessageSquare, UserPlus } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbqdBw3LdrYLbYHYubVN7O-gU4NQEsIWeNKGEKfGq81DVw0WbRkk7uyyKI6QwCU9Ie/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwv-BmPCgmKMyWu_DiysaptiIGBQ9toxLc0lNRo1QAAyMXtjWySoiPwJM-9JVwCVZHr/exec";
 
 const MEAL_OPTIONS = [
   { value: "Pork Tenderloin with Orange Horseradish Glaze", id: "pork", emoji: "🥩" },

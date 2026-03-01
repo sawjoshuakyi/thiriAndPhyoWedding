@@ -12,9 +12,12 @@ Follow these steps to connect your RSVP form to Google Sheets:
    - C1: `Email`
    - D1: `Phone`
    - E1: `Attendance`
-   - F1: `Guests`
+   - F1: `Meal Selection`
    - G1: `Dietary Restrictions`
-   - H1: `Message`
+   - H1: `Plus One`
+   - I1: `Plus One Name`
+   - J1: `Plus One Meal Selection`
+   - K1: `Message`
 
 ## Step 2: Create Google Apps Script
 
@@ -26,27 +29,33 @@ function doPost(e) {
   try {
     // Open the active spreadsheet
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    
+
     // Parse the incoming JSON data
     var data = JSON.parse(e.postData.contents);
-    
+
     // Append a new row with the form data
+    // Columns: Timestamp | Name | Email | Phone | Attendance |
+    //          Meal Selection | Dietary Restrictions |
+    //          Plus One | Plus One Name | Plus One Meal Selection | Message
     sheet.appendRow([
       data.timestamp || new Date().toISOString(),
       data.name || '',
       data.email || '',
       data.phone || '',
       data.attendance || '',
-      data.guests || '',
+      data.mealSelection || '',
       data.dietaryRestrictions || '',
+      data.plusOne || '',
+      data.plusOneName || '',
+      data.plusOneMealSelection || '',
       data.message || ''
     ]);
-    
+
     // Return success response
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'success' }))
       .setMimeType(ContentService.MimeType.JSON);
-      
+
   } catch (error) {
     // Return error response
     return ContentService
@@ -120,45 +129,56 @@ function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
-    
+
     // Append row
+    // Columns: Timestamp | Name | Email | Phone | Attendance |
+    //          Meal Selection | Dietary Restrictions |
+    //          Plus One | Plus One Name | Plus One Meal Selection | Message
     sheet.appendRow([
       data.timestamp || new Date().toISOString(),
       data.name || '',
       data.email || '',
       data.phone || '',
       data.attendance || '',
-      data.guests || '',
+      data.mealSelection || '',
       data.dietaryRestrictions || '',
+      data.plusOne || '',
+      data.plusOneName || '',
+      data.plusOneMealSelection || '',
       data.message || ''
     ]);
-    
+
     // Send email notification
+    var plusOneInfo = data.plusOne === 'yes'
+      ? `Plus One: Yes\n      Plus One Name: ${data.plusOneName || 'N/A'}\n      Plus One Meal: ${data.plusOneMealSelection || 'N/A'}`
+      : 'Plus One: No';
+
     var emailBody = `
       New RSVP Received!
-      
+
       Name: ${data.name}
       Email: ${data.email}
       Phone: ${data.phone}
       Attendance: ${data.attendance === 'yes' ? 'Joyfully Accepts' : 'Regretfully Declines'}
-      Number of Guests: ${data.guests}
+      Meal Selection: ${data.mealSelection || 'N/A'}
       Dietary Restrictions: ${data.dietaryRestrictions || 'None'}
+      ${plusOneInfo}
       Message: ${data.message || 'No message'}
-      
+
       Submitted at: ${data.timestamp}
     `;
-    
+
     // Replace with your email address
     MailApp.sendEmail({
       to: "your-email@example.com",
       subject: `Wedding RSVP: ${data.name} - ${data.attendance === 'yes' ? 'Attending' : 'Not Attending'}`,
       body: emailBody
     });
-    
+
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'success' }))
       .setMimeType(ContentService.MimeType.JSON);
-      
+
   } catch (error) {
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'error', message: error.toString() }))
