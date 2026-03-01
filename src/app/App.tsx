@@ -3,6 +3,7 @@ import { Hero } from "./components/Hero";
 import { OurStory } from "./components/OurStory";
 import { EventDetails } from "./components/EventDetails";
 import { RSVPForm } from "./components/RSVPForm";
+import { Honeyfund } from "./components/Honeyfund";
 import { NearbyHotels } from "./components/NearbyHotels";
 import { useEffect } from "react";
 import gsap from "gsap";
@@ -38,6 +39,7 @@ export default function App() {
       <OurStory />
       <EventDetails />
       <RSVPForm />
+      <Honeyfund />
       <NearbyHotels />
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">

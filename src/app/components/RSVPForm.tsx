@@ -135,7 +135,7 @@ export function RSVPForm() {
                   We've received your RSVP. We're so excited to celebrate with you!
                 </p>
                 <p className="text-sm sm:text-base text-gray-500 mb-8">
-                  A confirmation has been sent to{" "}
+                  We'll be in touch at{" "}
                   <span className="font-semibold text-blue-800 break-all">{formData.email}</span>
                 </p>
                 <Button
