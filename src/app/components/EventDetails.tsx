@@ -137,6 +137,7 @@ export function EventDetails() {
                 <div className="space-y-3">
                   <p className="text-gray-700 text-sm">Formal or Cocktail Attire</p>
                   <p className="text-gray-600 text-xs">Soft pastels are kindly encouraged</p>
+                  <p className="text-gray-600 text-xs italic">Kindly note that the groom and our fathers will be wearing grey, and our mothers will be in pink.</p>
                   <div className="flex gap-2 mt-3">
                     {colorPalette.map((item, index) => (
                       <div key={index} className="flex flex-col items-center">
@@ -268,8 +269,9 @@ export function EventDetails() {
               Dress Code
             </h3>
             <p className="text-base sm:text-lg text-gray-700 mb-2">Formal or Cocktail Attire</p>
-            <p className="text-sm sm:text-base text-blue-600 mb-6 sm:mb-8">Soft pastels are kindly encouraged</p>
-            
+            <p className="text-sm sm:text-base text-blue-600 mb-3">Soft pastels are kindly encouraged</p>
+            <p className="text-sm sm:text-base text-gray-600 italic mb-6 sm:mb-8">Kindly note that the groom and our fathers will be wearing grey, and our mothers will be in pink.</p>
+
             <div className="flex justify-center gap-4 sm:gap-6 md:gap-8">
               {colorPalette.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
